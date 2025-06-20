@@ -63,9 +63,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
        KC_TILD, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_UNDS,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, KC_LBRC,    XXXXXXX, KC_PGDN, KC_UP  , KC_PGUP, XXXXXXX, KC_VOLU,
+       RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, KC_LBRC,    KC_RBRC, KC_PGDN, KC_UP  , KC_PGUP, XXXXXXX, KC_VOLU,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       RGB_TOG, KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT, KC_LPRN,    XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, KC_MUTE,
+       RGB_TOG, KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT, KC_LPRN,    KC_RPRN, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, KC_MUTE,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
       RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,    XXXXXXX, KC_HOME, XXXXXXX, KC_END , XXXXXXX, KC_VOLD,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
