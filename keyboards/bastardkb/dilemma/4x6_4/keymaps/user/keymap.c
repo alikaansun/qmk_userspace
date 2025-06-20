@@ -31,6 +31,7 @@ enum dilemma_keymap_layers {
 #define RAISE MO(LAYER_RAISE)
 #define PT_Z LT(LAYER_POINTER, KC_Z)
 #define PT_SLSH LT(LAYER_POINTER, KC_SLSH)
+#define PT_ENT LT(LAYER_POINTER, KC_ENT)
 #define GUI_S LGUI_T(KC_S)     // Tap = S, Hold = Left Windows key
 #define GUI_TAB LGUI_T(KC_TAB) // Tap = Tab, Hold = Left Windows key
 #define ALT_BSPC LALT_T(KC_BSPC) // Tap = BSPC, Hold = ALT
@@ -55,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_LCTL,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, PT_SLSH, KC_LALT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                         KC_CAPS,ALT_BSPC,  KC_SPC,   LOWER,      RAISE,  KC_ENT, KC_DEL,  KC_MUTE
+                         KC_CAPS,ALT_BSPC,  KC_SPC,   LOWER,      RAISE,  PT_ENT, KC_DEL,  KC_MUTE
   //                    ╰───────────────────────────────────╯ ╰───────────────────────────────────╯
   ),
 
@@ -93,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DPI_MOD, S_D_MOD,    S_D_MOD, DPI_MOD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_CAPS, KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT, XXXXXXX,    XXXXXXX, KC_RCTL, KC_RGUI, KC_RALT, KC_RSFT, XXXXXXX,
+       KC_CAPS, KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT, XXXXXXX,    KC_BTN1, KC_BTN2, KC_RGUI, KC_RALT, KC_RSFT, KC_RCTL,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX, _______, DRGSCRL, SNIPING, XXXXXXX, XXXXXXX,    KC_BTN1, KC_BTN2, SNIPING, DRGSCRL, _______, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
