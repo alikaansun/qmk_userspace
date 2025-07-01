@@ -31,7 +31,7 @@ enum dilemma_keymap_layers {
 #define RAISE MO(LAYER_RAISE)
 #define PT_Z LT(LAYER_POINTER, KC_Z)
 #define PT_SLSH LT(LAYER_POINTER, KC_SLSH)
-#define PT_ENT LT(LAYER_POINTER, KC_ENT)
+#define PT_ENT LT(TG(LAYER_POINTER), KC_ENT)
 #define GUI_S LGUI_T(KC_S)     // Tap = S, Hold = Left Windows key
 #define GUI_TAB LGUI_T(KC_TAB) // Tap = Tab, Hold = Left Windows key
 #define ALT_BSPC LALT_T(KC_BSPC) // Tap = BSPC, Hold = ALT
