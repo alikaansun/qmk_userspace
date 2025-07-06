@@ -129,7 +129,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     if (layer_state_cmp(state, LAYER_LOWER) && layer_state_cmp(state, LAYER_RAISE)) {
         if (!adjust_layer_was_on) {
             // Toggle the ADJUST layer
-            state = layer_state_set(state, LAYER_ADJUST, !layer_state_cmp(state, LAYER_ADJUST));
+            state ^= (1UL << LAYER_ADJUST);
             adjust_layer_was_on = true;
         }
     } else {
