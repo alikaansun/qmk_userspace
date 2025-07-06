@@ -119,23 +119,42 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 // clang-format on
 #define DILEMMA_AUTO_SNIPING_ON_LAYER LAYER_POINTER
+
+// Variables to track LOWER and RAISE key states
+static bool lower_pressed = false;
+static bool raise_pressed = false;
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LOWER:
+            if (record->event.pressed) {
+                lower_pressed = true;
+                // Check if RAISE is also pressed
+                if (raise_pressed) {
+                    layer_invert(LAYER_ADJUST);
+                }
+            } else {
+                lower_pressed = false;
+            }
+            break;
+        case RAISE:
+            if (record->event.pressed) {
+                raise_pressed = true;
+                // Check if LOWER is also pressed
+                if (lower_pressed) {
+                    layer_invert(LAYER_ADJUST);
+                }
+            } else {
+                raise_pressed = false;
+            }
+            break;
+    }
+    return true;
+}
+
 #ifdef POINTING_DEVICE_ENABLE
 #    ifdef DILEMMA_AUTO_SNIPING_ON_LAYER
 layer_state_t layer_state_set_user(layer_state_t state) {
-    // Handle ADJUST layer toggle when LOWER and RAISE are pressed together
-    static bool adjust_layer_was_on = false;
-
-    // Check if both LOWER and RAISE are pressed
-    if (layer_state_cmp(state, LAYER_LOWER) && layer_state_cmp(state, LAYER_RAISE)) {
-        if (!adjust_layer_was_on) {
-            // Toggle the ADJUST layer
-            state ^= (1UL << LAYER_ADJUST);
-            adjust_layer_was_on = true;
-        }
-    } else {
-        adjust_layer_was_on = false;
-    }
-
     dilemma_set_pointer_sniping_enabled(layer_state_cmp(state, DILEMMA_AUTO_SNIPING_ON_LAYER));
     return state;
 }
