@@ -22,6 +22,7 @@ enum dilemma_keymap_layers {
     LAYER_LOWER,
     LAYER_RAISE,
     LAYER_POINTER,
+    LAYER_ADJUST,
 };
 
 // Automatically enable sniping-mode on the pointer layer.
@@ -101,12 +102,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                          XXXXXXX, KC_BTN2, KC_BTN1, KC_BTN3,    KC_BTN3, KC_BTN1, KC_BTN2, XXXXXXX
   //                    ╰───────────────────────────────────╯ ╰───────────────────────────────────╯
   ),
+
+  [LAYER_ADJUST] = LAYOUT(
+  // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
+       RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
+          KC_A, RGB_RMOD,RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
+                         XXXXXXX, XXXXXXX, XXXXXXX, _______,    _______, XXXXXXX, XXXXXXX, XXXXXXX
+  //                    ╰───────────────────────────────────╯ ╰───────────────────────────────────╯
+  ),
 };
 // clang-format on
 #define DILEMMA_AUTO_SNIPING_ON_LAYER LAYER_POINTER
 #ifdef POINTING_DEVICE_ENABLE
 #    ifdef DILEMMA_AUTO_SNIPING_ON_LAYER
 layer_state_t layer_state_set_user(layer_state_t state) {
+    // Handle ADJUST layer toggle when LOWER and RAISE are pressed together
+    static bool adjust_layer_was_on = false;
+
+    // Check if both LOWER and RAISE are pressed
+    if (layer_state_cmp(state, LAYER_LOWER) && layer_state_cmp(state, LAYER_RAISE)) {
+        if (!adjust_layer_was_on) {
+            // Toggle the ADJUST layer
+            state = layer_state_set(state, LAYER_ADJUST, !layer_state_cmp(state, LAYER_ADJUST));
+            adjust_layer_was_on = true;
+        }
+    } else {
+        adjust_layer_was_on = false;
+    }
+
     dilemma_set_pointer_sniping_enabled(layer_state_cmp(state, DILEMMA_AUTO_SNIPING_ON_LAYER));
     return state;
 }
@@ -126,6 +155,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [LAYER_LOWER]      = {ENCODER_CCW_CW(KC_UP, KC_DOWN), ENCODER_CCW_CW(KC_LEFT, KC_RGHT)},
     [LAYER_RAISE]      = {ENCODER_CCW_CW(KC_WH_U, KC_WH_D), ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [LAYER_POINTER]    = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI), ENCODER_CCW_CW(RGB_HUD, RGB_HUI)},
+    [LAYER_ADJUST]     = {ENCODER_CCW_CW(RGB_SAD, RGB_SAI), ENCODER_CCW_CW(RGB_HUD, RGB_HUI)},
 };
 // clang-format on
 #endif // ENCODER_MAP_ENABLE
