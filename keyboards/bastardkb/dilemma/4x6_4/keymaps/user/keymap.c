@@ -69,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_CAPS, KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT, KC_SCLN,    KC_QUOT, KC_LEFT, KC_DOWN, KC_RGHT, KC_PMNS, KC_PPLS,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, XXXXXXX, XXXXXXX,  KC_DOT, KC_COMM, PT_BSLS,    PT_SLSH, KC_HOME, XXXXXXX, KC_END , KC_PSLS, KC_PDOT,
+       XXXXXXX, XXXXXXX, XXXXXXX,  KC_DOT, KC_COMM, KC_BSLS,    PT_SLSH, KC_HOME, XXXXXXX, KC_END , KC_PSLS, KC_PDOT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                          _______, _______, _______, _______,    _______, _______, _______, _______
   //                    ╰───────────────────────────────────╯ ╰───────────────────────────────────╯
@@ -83,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_CAPS, KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT, KC_SCLN,    KC_QUOT, KC_LEFT, KC_DOWN, KC_RGHT, KC_PMNS, KC_PPLS,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, XXXXXXX, XXXXXXX,  KC_DOT, KC_COMM, PT_BSLS,    PT_SLSH, KC_HOME, XXXXXXX, KC_END , KC_PSLS, KC_PDOT,
+       XXXXXXX, XXXXXXX, XXXXXXX,  KC_DOT, KC_COMM, KC_BSLS,    PT_SLSH, KC_HOME, XXXXXXX, KC_END , KC_PSLS, KC_PDOT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                          _______, _______, _______, _______,    _______, _______, _______, _______
   //                    ╰───────────────────────────────────╯ ╰───────────────────────────────────╯
@@ -111,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_CAPS, KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT, KC_SCLN,    KC_QUOT, KC_LEFT, KC_DOWN, KC_RGHT, KC_PMNS, KC_PPLS,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, XXXXXXX, XXXXXXX, KC_COMM,  KC_DOT, PT_BSLS,    PT_SLSH, KC_HOME, XXXXXXX, KC_END , KC_PSLS, KC_PDOT,
+       XXXXXXX, XXXXXXX, XXXXXXX, KC_COMM,  KC_DOT, KC_BSLS,    PT_SLSH, KC_HOME, XXXXXXX, KC_END , KC_PSLS, KC_PDOT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                          _______, _______, _______, _______,    _______, _______, _______, _______
   //                    ╰───────────────────────────────────╯ ╰───────────────────────────────────╯
